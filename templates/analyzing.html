@@ -38,8 +38,13 @@
     </div>
     <div class="container">
     <h1> Your analyzed text </h1>
-        <br>
-    <pre> <h1> <font color="blue"> {{text}} </font> </h1> </pre>
+    <br>
+    <h1> <font color="blue"> 
+      {% for data in text %} 
+        {{data}} 
+      <br>
+      {% endfor %} 
+    </font> </h1>
     </div>
 </body>
 </html>
