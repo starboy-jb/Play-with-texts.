@@ -1,4 +1,3 @@
-#me and myself
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -7,6 +6,7 @@ def index(request):
 
 def manipulator(request):
     string = request.POST.get('text', 'default')
+    string = string.strip()
     punctuation = request.POST.get('remove punctuation', 'off')
     uppercase = request.POST.get('UPPERCASE', 'off')
     espaces = request.POST.get('remove extra spaces', 'off')
@@ -16,7 +16,7 @@ def manipulator(request):
     any = 0
     if punctuation == 'on':
         any = 1
-        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        punctuations = '''\\!()-[]{};:'",<>./?@#$%^&*_~'''
         for c in string:
             if c not in punctuations:
                 mstring += c
@@ -54,49 +54,9 @@ def manipulator(request):
         mstring = str(ans)
         motto = 'character count'
         string = mstring
-
+    string = string.split("\n")
+    
     if not(any):
         return HttpResponse("<h1> Please select any option to see the magic </h1>")
     para = {'text': string, 'motto': motto}
     return render(request, 'analyzing.html', para)
-
-# def about(request):
-#     s = 'How are you?'
-#     s = str(s)
-#     return HttpResponse("<h1> %s </h1>" % s)
-#
-# def test(request):
-#     f1 = open("first.txt", "r")
-#     return HttpResponse("<h1> %s <h1>" % (f1.read()))
-#
-# def navigator(request):
-#     html = '''<a href = "https://www.youtube.com/"> Youtube </a> <br>
-#     <a href = "https://www.gaana.com/"> Gaana </a> <br>
-#     <a href = "https://www.codeforces.com/"> Codeforces </a> <br>
-#     <a href = "https://www.codechef.com/"> Codechef </a> <br>
-#     <a href = "https://www.hackerrank.com/"> hackerrank </a>'''
-#     return HttpResponse(html)
-#
-# def capFirst(request):
-#     html = '''
-#     <h3> capFirst is here </h3>
-#     <form>
-#     <button type = "submit" value = "back to home" formaction = "http://127.0.0.1:8000/">
-#     back to home
-#     </button>
-#     </form>
-#     '''
-#     return HttpResponse(html)
-#
-# def capitalize(request):
-#     string = request.GET.get('text')
-#     print(string)
-#     html = '''
-#     <h3> capitalize is here </h3>
-#     <form>
-#     <button type = "submit" value = "back to home" formaction = "http://127.0.0.1:8000/">
-#     back to home
-#     </button>
-#     </form>
-#     '''
-#     return HttpResponse(html)

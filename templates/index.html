@@ -38,32 +38,33 @@
     </div>
 
     <div class="container">
-    <h1> Write something in the below box. </h1>
-        <form method="POST" action="/manipulator"> {% csrf_token %}
-            <textarea name="text" placeholder="write something in this box..." style="width: 908px; height: 137px;font-size: 20px;"></textarea>
-            <br>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" name="remove punctuation">
-              <label class="custom-control-label" for="customSwitch1">remove punctuations</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2" name="UPPERCASE">
-              <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch3" name="remove extra spaces">
-              <label class="custom-control-label" for="customSwitch3">remove extra spaces</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4" name="remove lines">
-              <label class="custom-control-label" for="customSwitch4">remove lines</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch5" name="character count">
-              <label class="custom-control-label" for="customSwitch5">character count</label>
-            </div>
-            <button type="submit" class="btn btn-dark mt-2">Manipulate</button>
-        </form>
+      <h1> Write something in the below box. </h1>
+      <form method="POST" action="/manipulator"> {% csrf_token %}
+      	<textarea name="text" placeholder="write something in this box..." style="width: 908px; height: 137px;
+          font-size: 20px;margin-left: 0px;padding: 0px;"></textarea>
+          <br>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="remove punctuation">
+            <label class="custom-control-label" for="customSwitch1">remove punctuations</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch2" name="UPPERCASE">
+            <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch3" name="remove extra spaces">
+            <label class="custom-control-label" for="customSwitch3">remove extra spaces</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch4" name="remove lines">
+            <label class="custom-control-label" for="customSwitch4">remove lines</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch5" name="character count">
+            <label class="custom-control-label" for="customSwitch5">character count</label>
+          </div>
+          <button type="submit" class="btn btn-dark mt-2">Manipulate</button>
+      </form>
     </div>
 </body>
 </html>
